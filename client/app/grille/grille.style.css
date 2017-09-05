@@ -1,0 +1,77 @@
+input {
+    text-align: center;
+    width: 48px;
+    height: 48px;
+    color: blue;
+    font-size: 250%;
+    border: none;
+    border-collapse: collapse;
+}
+.inputMultiple3{
+    text-align: center;
+    width: 50px;
+    height: 50px;
+    color: blue;
+    font-size: 100%;
+    border-right: 12px solid black;
+    border-collapse: collapse;
+}
+.grille {
+    margin: auto;
+    width: 512px;
+    border-collapse: collapse;
+    background-color: black;
+}
+.cell{
+    text-align: center;
+    background-color: gray;
+    width: 50px;
+    height: 50px;
+    color: black;
+    font-size: 250%;
+    border-collapse: collapse;
+}
+.caseBlanche{
+    text-align: center;
+    background-color: white;
+    width: 50px;
+    height: 50px;
+    color: green;
+    font-size: 250%;
+    border-collapse: collapse;
+}
+.cellMultiple3{
+    text-align: center;
+    background-color: gray;
+    width: 50px;
+    height: 50px;
+    color: black;
+    font-size: 250%;
+    border-collapse: collapse;
+    border-right: 12px solid black;
+}
+.surligneeEnJaune{
+    background-color: yellow;
+}
+.caracteresEnRouge{
+    color: darkred;
+}
+.encadreeEnNoir{
+    background-color: black;
+}
+.row{
+    border-collapse: collapse;
+}
+ #chronometre{
+      font-size: 170%;
+}
+#boutonDiv{
+    padding-top: 10px;
+}
+
+/*Sert a cacher les spinbox des input de type number*/ 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}

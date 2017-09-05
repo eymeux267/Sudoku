@@ -1,0 +1,6 @@
+<div *ngIf="confirmed === false" >
+    <h4>Bonjour vous allez maintenant choisir votre nom pour le reste du jeu  </h4> 
+    <label>Entrez nom d'utilisateur: </label>
+    <input type="text" name="name" [(ngModel)]="name"/>
+    <button (click) = "confirmer()">Confirmer</button>
+</div>

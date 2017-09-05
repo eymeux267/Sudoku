@@ -1,0 +1,60 @@
+    <timer-element [reinitialiserChronometre]="reinitialiserChronometre" 
+      [terminerPartie]="terminerPartie"
+        (partieEstFinie)="lancerFinPartieEvenement($event)" id="chronometre"></timer-element>
+
+      <div id="boutonDiv">
+      <button id="boutonReinitialiser" (click)="reinitialiserPartie()"> Réinitialiser partie </button>
+      <button class="boutonNouvellePartie" id="boutonNormale" (click)="requeteNouvelleGrille(false)">Nouvelle partie normale</button>
+    <button class="boutonNouvellePartie" id="boutonDifficile" (click)="requeteNouvelleGrille(true)">Nouvelle partie difficile</button>
+    </div>
+    <br/>
+
+    <div #grilleSudokuDiv>
+      <div class ="grille" (keydown)="gestionnaireTouchesClavier($event.keyCode)" tabindex="1" 
+            (keyup)="entrerChiffre($event.keyCode)">
+        <table>
+          <tr *ngFor= "let row of grilleTrous; let i = index"  class="row">
+            <td *ngFor= "let cell of row; let j = index"  class="column">
+
+              <div (click)="surSelectionCase(i, j)" class="caseBlanche" *ngIf="cell === null && (j !== 2 && j !== 5)"
+                  [ngClass]="{'surligneeEnJaune': derniereCase[0] === i && derniereCase[1] ===j}">
+                  <label  [ngClass]="{'caracteresEnRouge': validiteLignes[i] === false 
+                                          || validiteColonnes[j] === false 
+                                            ||  validiteSousGrille[trouverPositionSousGrille(i, j)] === false}">
+                        {{grilleAEnvoyer[i][j]}} </label>
+              </div>  
+              
+
+              <div (click)="surSelectionCase(i, j)" class="caseBlanche" *ngIf="cell === null && (j === 2 || j === 5)"
+                  [ngClass]="{'surligneeEnJaune': derniereCase[0] === i && derniereCase[1] ===j}" >
+                  <label  [ngClass]="{'caracteresEnRouge': validiteLignes[i] === false
+                                            || validiteColonnes[j] === false
+                                               ||  validiteSousGrille[trouverPositionSousGrille(i, j)] === false}">
+                        {{grilleAEnvoyer[i][j]}} </label>
+              </div>  
+
+              
+              <div class = "cell" *ngIf="cell !== null  && (j !== 2 && j !== 5)" 
+                  [ngClass]="{'surligneeEnJaune': derniereCase[0] === i && derniereCase[1] ===j}">
+                <label  [ngClass]="{'caracteresEnRouge': validiteLignes[i] === false 
+                                      || validiteColonnes[j] === false
+                                           ||  validiteSousGrille[trouverPositionSousGrille(i, j)] === false}"> 
+                            {{cell}} </label>
+              </div>
+              
+              <div class="cellMultiple3" *ngIf="cell !== null  && (j === 2 || j === 5)" 
+                  [ngClass]="{'surligneeEnJaune': derniereCase[0] === i && derniereCase[1] ===j}">
+                <label  [ngClass]="{'caracteresEnRouge': validiteLignes[i] === false 
+                                        || validiteColonnes[j] === false
+                                            ||  validiteSousGrille[trouverPositionSousGrille(i, j)] === false}"> 
+                            {{cell}} </label>
+              </div>
+              
+              <div *ngIf="i === 2 || i === 5">
+                <br/> 
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>

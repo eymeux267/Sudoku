@@ -1,0 +1,24 @@
+    <h2> Meilleurs temps</h2>
+    <h3>Normal</h3>
+    <table class="tableHighScores">
+      <tr id="row1">
+        <td>Nom:</td>
+        <td>Temps</td>
+      </tr>
+      <tr *ngFor="let leScore of scoresNormal">
+          <td> {{leScore.nomJoueur}}</td>
+          <td> {{leScore.temps.toString()}}</td>
+      </tr>
+    </table>
+
+    <h3>Difficile</h3>
+    <table class="tableHighScores">
+      <tr id="row1">
+        <td>Nom:</td>
+        <td>Temps:</td>
+      </tr>
+      <tr *ngFor="let leScore of scoresDifficile">
+          <td> {{leScore.nomJoueur}}</td>
+          <td> {{leScore.temps.toString()}}  </td>
+      </tr>
+    </table>

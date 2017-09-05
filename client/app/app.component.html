@@ -1,0 +1,27 @@
+<h2 *ngIf="scoreEnvoye.nomJoueur">Bienvenue, {{scoreEnvoye.nomJoueur}}</h2>
+    <h2 *ngIf="difficulte === false">Niveau de difficulte: Normal</h2>
+    <h2 *ngIf="difficulte === true">Niveau de difficulte: Difficile</h2>
+
+  <grille-sudoku  [difficulte]="difficulte"
+                (difficulteChangee)="changerDifficulte($event)"
+                (partieEstFinie)="afficherFelicitations($event)" 
+                      *ngIf="!partieEstFinie
+                                            && scoreEnvoye.nomJoueur && partieEstCommencee"></grille-sudoku>
+
+<div *ngIf="!partieEstCommencee && scoreEnvoye.nomJoueur " >
+  <h2>Choisir la difficulté du Sudoku</h2>
+  <button class="boutonDifficulte" (click)="commencerPartie(false)">Normale</button>
+  <br/>
+  <br/>
+  <br/>
+  <button class="boutonDifficulte" (click)="commencerPartie(true)">Difficile</button>
+</div>
+  
+  <div *ngIf="partieEstFinie">
+    <h2>Voici une liste des meilleurs scores</h2>
+
+    <meilleurs-scores 
+          [nouveauScore]="scoreEnvoye"
+          [difficulteDifficile]="difficulte">
+    </meilleurs-scores>>
+  </div>

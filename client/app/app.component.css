@@ -1,0 +1,12 @@
+  .boutonDifficulte{
+      font-size:25px;
+      border:none;
+      margin: 0px 10px;
+      border-radius:3px;
+      box-shadow:0 3px 0 #0eb2c1;
+      background: #5DBCD2;
+      cursor: pointer;
+      position: absolute;
+      left: 100px;
+      width: 140px;
+    }

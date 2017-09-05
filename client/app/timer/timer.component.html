@@ -1,0 +1,5 @@
+  <div id = "timer" *ngIf= "!timerCacher">
+   <p id="output">{{display}}</p>
+  </div>
+  <button id="btnCacher" *ngIf= "!timerCacher" (click)="cacherTimer()">Cacher chronometre</button>
+  <button id="btnMontrer" *ngIf= "timerCacher" (click)="montrerTimer()">Afficher chronometre</button>
